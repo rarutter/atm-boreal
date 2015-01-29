@@ -1,0 +1,59 @@
+#include "co2Inputer.h"
+
+CO2Inputer::CO2Inputer(){
+	
+};
+
+CO2Inputer::~CO2Inputer(){
+	
+};
+
+void CO2Inputer::initco2(string & dirfile){
+
+	dir4co2file = dirfile + "co2.nc";
+	//NcError err(NcError::silent_nonfatal);
+
+	NcFile co2File(dir4co2file.c_str(), NcFile::ReadOnly);  //open co2 file
+
+ 	if(!co2File.is_valid()){
+ 		string msg = dir4co2file+" is not valid";
+ 		char* msgc = const_cast< char* > ( msg.c_str());
+ 		throw Exception( msgc, I_NCFILE_NOT_EXIST);
+ 	}
+
+	cout<<"dirfile = "<<dir4co2file<<endl;
+	cout<<"co2File.is_valid() = "<<co2File.is_valid()<<endl;
+
+ 	NcDim* co2D = DEMFile.get_dim("YEAR");
+  	if(!co2D->is_valid()){
+  		string msg = "The Dimension for co2 is not Valid in DEMFile";
+ 		char* msgc = const_cast<char*> (msg.c_str());
+ 		throw Exception(msgc,  I_NCDIM_NOT_EXIST);
+ 	}
+
+	cout<<"done 1"<<endl;
+
+}
+
+
+float DEMInputer::getco2Data(string & dirfile){
+
+	float ta;
+
+	NcVar* co2V = DEMFile.get_var("CO2");
+	if(vo2V==NULL){
+	  cout <<"cannot get co2 \n";
+	}
+
+	cout<<"co2V = "<<co2V<<endl;
+
+	co2V->set_cur(815826);
+
+	cout<<"done3 "<<endl;
+
+	co2V->get(&ta,106);
+
+	cout<<"done4 = "<<endl;
+
+	return 0;
+}

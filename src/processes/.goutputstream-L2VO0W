@@ -1,0 +1,30 @@
+#ifndef co2Inputer_H_
+
+	#define co2Inputer_H_
+	 
+	#include <iostream>
+	#include <fstream>
+	#include <string>
+
+	using namespace std;
+
+	#include "../netcdf/includes/netcdfcpp.h"
+	#include "../inc/ErrorCode.h"
+	#include "../inc/Exception.h"
+
+	class CO2Inputer{
+		public:
+			CO2Inputer();
+			~CO2Inputer();
+	
+			void initco2(string & dirfile);
+			float getco2Data(string & dirfile);
+
+			string dir4co2file;
+
+			NcVar* co2V;
+
+
+	};
+
+#endif /*CO2INPUTER_H_*/

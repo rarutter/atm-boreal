@@ -1,0 +1,27 @@
+ 
+	#include <iostream>
+	#include <fstream>
+	#include <string>
+
+	using namespace std;
+
+	#include "../netcdf/includes/netcdfcpp.h"
+	#include "../inc/ErrorCode.h"
+	#include "../inc/Exception.h"
+
+	class CoInputer{
+		public:
+			CoInputer();
+			~CoInputer();
+	
+			float initco(string & dirfile);
+			float getcoData(string & dirfile);
+
+			string dir4co2file;
+
+			NcVar* co2V;
+
+
+	};
+
+

@@ -1,0 +1,18 @@
+1. This version is for changing the loops. First, loop through year, then loop through grid and finally loop through cohorts within a grid. 
+
+2. Year loops through 2000-2100.
+
+3. The version is for test rules for boreal forest in TNN 10*10 area, newly created cohorts are not added to the linked-list each year but integrated to existing cohorts.
+
+4. So only 10 cohorts will be output to nc file each year. (June, 2014)
+
+5.  (July 21, 2014) Apply the rules for boreal forest and thermokarst in Yukon river basin test area, and run from 2000 to 2100. 
+Add codes for inputting 8 types of datasets for thermokarst lakes for calculating probabiliby  
+and for inputing images which are used to calculate changing rates for boreal forest spruces and deciduous forests in TNN flats.
+
+6. This version is for AGU and for the paper for TNN 2010-2100.
+
+7. modify the codes for output proportion into netcdf file, is no longer xD, yD, but in one dimension and year dimension. need to convert from 1D to 2D if you want to make a map.
+
+8. The predisposition module in the current version of ATM is not used, however, if needed, some modifications on the codes could be done.
+ 
